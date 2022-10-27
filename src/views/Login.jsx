@@ -3,6 +3,26 @@ import { Component } from "react";
 import LogoDente from "../assets/images/newDentes.png";
 
 export default class Login extends Component {
+  state = {
+    user: "jefferson.gomes@exemplo.com",
+    password: "Saw50812@",
+  };
+
+  handleLogin = (e) => {
+    const finalUserData = [];
+
+    const fieldName = e.target.name;
+    const fieldValue = e.target.value;
+
+    const userData = { fieldName, fieldValue };
+
+    console.log(userData);
+
+    this.setState({ [fieldName]: fieldValue });
+
+    console.log(fieldName, fieldValue);
+  };
+
   render() {
     return (
       <>
@@ -28,8 +48,9 @@ export default class Login extends Component {
                         <h5>Usuário</h5>
                       </label>
                       <input
+                        onChange={this.handleLogin}
+                        name="user"
                         type="text"
-                        pattern="[a-z]*"
                         placeholder="exemplo@exemplo.com"
                         className="form-control border border-info myInput myMoveAnimation"
                       />
@@ -41,16 +62,18 @@ export default class Login extends Component {
                         <h5>Senha</h5>
                       </label>
                       <input
+                        onChange={this.handleLogin}
+                        name="password"
                         type="password"
-                        name="sku"
                         placeholder="Sua senha"
-                        className="form-control border border-info myMoveAnimationDelay"
+                        className="form-control border border-info myMoveAnimation2Delay"
                       />
                     </div>
                   </div>
                   <div className="col-sm-8">
                     <div className="form-group">
                       <button
+                        onClick={this.handleLogin}
                         type="submit"
                         className="form-control mt-3 btn btn-light"
                       >

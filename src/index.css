@@ -23,19 +23,20 @@
 .myMoveAnimation {
   animation-name: move;
   animation-duration: 1s;
+  animation-delay: 100;
 }
 
-.myMoveAnimationDelay {
+.myMoveAnimation2Delay {
   animation-name: move;
-  animation-duration: 1s;
-  animation-delay: 90ms;
-
+  animation-duration: 1.3s;
+  animation-delay: 200ms;
+  animation-fill-mode: backwards;
 }
 
 @keyframes fade {
   from {
     opacity: 0;
-    transform: scale(0.1);
+    transform: scale(0.5);
   }
   to {
     opacity: 1;
@@ -46,11 +47,26 @@
 @keyframes move {
   from {
     opacity: hidden;
-    transform: translateX(80%);
+    transform: translateX(50%);
   }
   to {
     opacity: 1;
     transform: translateX(0%);
+  }
+}
+
+@keyframes nono {
+  0% {
+    transform: translateX(0);
+  }
+  35% {
+    transform: translateX(-15%);
+  }
+  70% {
+    transform: translateX(15%);
+  }
+  100% {
+    transform: translateX(0);
   }
 }
 
