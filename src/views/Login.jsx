@@ -2,11 +2,15 @@ import PersonIcon from "@mui/icons-material/Person";
 import { Component } from "react";
 import LogoDente from "../assets/images/newDentes.png";
 import users from "../../users";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Token from "../security/generateToken";
+import { useNavigate } from "react-router-dom";
 
 export default class Login extends Component {
   state = {
-    user: "",
-    password: "",
+    user: "jefferson.gomes@exemplo.com",
+    password: "Saw50812@",
     invalid: false,
     moveAnimation: "myMoveAnimation",
   };
@@ -18,15 +22,23 @@ export default class Login extends Component {
     console.log(fieldName, fieldValue);
   };
 
+
+  goToHomePage = () => {
+    useNavigate("/home")
+  };
+
   handleLogin = () => {
     const { user: myAuthUser, password: myAuthPassword } = this.state;
 
     if (myAuthUser === users.user && myAuthPassword === users.password) {
-      console.log("Logado com sucesso");
+      toast.success("Logado com sucesso!");
+      localStorage.setItem("token", Token());
+      this.goToHomePage();
     } else {
       this.setState({
         invalid: true,
       });
+      toast.error("Credenciais incorretas!");
     }
   };
 
@@ -65,11 +77,11 @@ export default class Login extends Component {
                         name="user"
                         type="text"
                         onAnimationEnd={this.handleAnimationEnd}
-                        // value={user}
+                        value={user}
                         placeholder="exemplo@exemplo.com"
                         className={`${
                           invalid ? "invalidForm" : ""
-                        } form-control  myInput ${
+                        } form-control border border-info myInput ${
                           moveAnimation ? "myMoveAnimation" : ""
                         }`}
                       />
@@ -84,7 +96,7 @@ export default class Login extends Component {
                         onChange={this.handleInput}
                         name="password"
                         type="password"
-                        // value={password}
+                        value={password}
                         placeholder="Sua senha"
                         className={`${
                           this.state.invalid ? "invalidForm" : ""
