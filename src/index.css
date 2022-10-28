@@ -33,6 +33,11 @@
   animation-fill-mode: backwards;
 }
 
+.invalidForm {
+  animation-name: nono;
+  animation-duration: 0.5s;
+}
+
 @keyframes fade {
   from {
     opacity: 0;

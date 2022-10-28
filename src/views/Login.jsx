@@ -1,29 +1,42 @@
 import PersonIcon from "@mui/icons-material/Person";
 import { Component } from "react";
 import LogoDente from "../assets/images/newDentes.png";
+import users from "../../users";
 
 export default class Login extends Component {
   state = {
-    user: "jefferson.gomes@exemplo.com",
-    password: "Saw50812@",
+    user: "",
+    password: "",
+    invalid: false,
+    moveAnimation: "myMoveAnimation",
   };
 
-  handleLogin = (e) => {
-    const finalUserData = [];
-
+  handleInput = (e) => {
     const fieldName = e.target.name;
     const fieldValue = e.target.value;
-
-    const userData = { fieldName, fieldValue };
-
-    console.log(userData);
-
     this.setState({ [fieldName]: fieldValue });
-
     console.log(fieldName, fieldValue);
   };
 
+  handleLogin = () => {
+    const { user: myAuthUser, password: myAuthPassword } = this.state;
+
+    if (myAuthUser === users.user && myAuthPassword === users.password) {
+      console.log("Logado com sucesso");
+    } else {
+      this.setState({
+        invalid: true,
+      });
+    }
+  };
+
+  handleAnimationEnd = () => {
+    this.setState({ invalid: false, moveAnimation: false });
+  };
+
   render() {
+    const { user, password, moveAnimation, invalid } = this.state;
+
     return (
       <>
         <div className="container-fluid">
@@ -48,11 +61,17 @@ export default class Login extends Component {
                         <h5>Usuário</h5>
                       </label>
                       <input
-                        onChange={this.handleLogin}
+                        onChange={this.handleInput}
                         name="user"
                         type="text"
+                        onAnimationEnd={this.handleAnimationEnd}
+                        // value={user}
                         placeholder="exemplo@exemplo.com"
-                        className="form-control border border-info myInput myMoveAnimation"
+                        className={`${
+                          invalid ? "invalidForm" : ""
+                        } form-control  myInput ${
+                          moveAnimation ? "myMoveAnimation" : ""
+                        }`}
                       />
                     </div>
                   </div>
@@ -62,11 +81,14 @@ export default class Login extends Component {
                         <h5>Senha</h5>
                       </label>
                       <input
-                        onChange={this.handleLogin}
+                        onChange={this.handleInput}
                         name="password"
                         type="password"
+                        // value={password}
                         placeholder="Sua senha"
-                        className="form-control border border-info myMoveAnimation2Delay"
+                        className={`${
+                          this.state.invalid ? "invalidForm" : ""
+                        } form-control border border-info ${moveAnimation}`}
                       />
                     </div>
                   </div>
