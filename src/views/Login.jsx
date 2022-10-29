@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
-  let [user, setuser] = useState("");
+  const [user, setUser] = useState("");
   let [password, setpassword] = useState("");
   let [fieldValue, setfieldValue] = useState();
   let [fieldName, setfieldName] = useState();
@@ -21,13 +21,10 @@ const Login = () => {
   };
 
   const handleUser = (e) => {
-    setfieldName((fieldName = e.target.name));
-    setfieldValue((fieldValue = e.target.value));
-
-    setuser((user = { [fieldName]: fieldValue }));
-    setpassword((password = { [fieldName]: fieldValue }));
-    console.log(user, password);
+    setUser(e.target.value);
   };
+
+  console.log(user === users.user);
 
   const handleLogin = () => {
     if (user === users.user && password === users.password) {
