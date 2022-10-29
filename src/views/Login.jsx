@@ -9,27 +9,29 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 const Login = () => {
-  const [user, setUser] = useState("");
-  let [password, setpassword] = useState("");
-  let [fieldValue, setfieldValue] = useState();
-  let [fieldName, setfieldName] = useState();
+  const [user, setUser] = useState("jefferson.gomes@exemplo.com");
+  const [password, setPassword] = useState("Saw50812@");
   let [invalid, setinvalid] = useState(false);
   let [moveAnimation, setmoveAnimation] = useState("myMoveAnimation");
 
+  const navigate = useNavigate();
+
   const goToHomePage = () => {
-    useNavigate("/home");
+    navigate("/home");
   };
 
   const handleUser = (e) => {
     setUser(e.target.value);
+    setPassword(e.target.value);
   };
-
-  console.log(user === users.user);
 
   const handleLogin = () => {
     if (user === users.user && password === users.password) {
       toast.success("Logado com sucesso!");
       localStorage.setItem("token", Token());
+      setTimeout(() => {
+        goToHomePage();
+      }, 2000);
     } else {
       setinvalid((invalid = true));
       toast.error("Credenciais incorretas!");
@@ -99,7 +101,7 @@ const Login = () => {
                     <button
                       onClick={handleLogin}
                       type="submit"
-                      className="form-control mt-3 btn btn-light"
+                      className="form-control mt-3 fw-bolder border-info btn btn-success "
                     >
                       Entrar
                     </button>
