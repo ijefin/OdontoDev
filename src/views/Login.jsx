@@ -8,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import LoginIcon from "@mui/icons-material/Login";
-import TextField from "@mui/material/TextField";
 
 const Login = () => {
   const [user, setUser] = useState("jefferson.gomes@exemplo.com");
