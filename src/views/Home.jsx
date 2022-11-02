@@ -31,7 +31,7 @@ const Home = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span>Cadastro</span>
+                    <span className="text-light">Cadastro</span>
                   </a>
                   <div className="dropdown-menu myFastFadeAnimation border border-black">
                     <a className="dropdown-item " href="#">
@@ -51,7 +51,7 @@ const Home = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span>Consulta</span>
+                    <span className="text-light">Consulta</span>
                   </a>
                   <div className="dropdown-menu myFastFadeAnimation">
                     <a className="dropdown-item" href="#">
@@ -64,7 +64,7 @@ const Home = () => {
                 </li>
                 <li className="nav-item">
                   <a className="nav-link active" href="#">
-                    <span>
+                    <span className="text-light">
                       Sair <LogoutIcon sx={{ fontSize: 18 }} />
                     </span>
                     <span className="visually-hidden">(current)</span>
