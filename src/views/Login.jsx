@@ -1,5 +1,4 @@
 import PersonIcon from "@mui/icons-material/Person";
-import { Component } from "react";
 import LogoDente from "../assets/images/newDentes.png";
 import users from "../../users";
 import { toast } from "react-toastify";
@@ -7,12 +6,16 @@ import "react-toastify/dist/ReactToastify.css";
 import Token from "../security/generateToken";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Button from "@mui/material/Button";
+import LoginIcon from "@mui/icons-material/Login";
+import TextField from "@mui/material/TextField";
+import InputBase from "@mui/material/InputBase";
 
 const Login = () => {
   const [user, setUser] = useState("jefferson.gomes@exemplo.com");
   const [password, setPassword] = useState("Saw50812@");
   let [invalid, setinvalid] = useState(false);
-  let [moveAnimation, setmoveAnimation] = useState("myMoveAnimation");
+  let [moveAnimation, setmoveAnimation] = useState("myLMoveAnimation");
 
   const navigate = useNavigate();
 
@@ -25,6 +28,7 @@ const Login = () => {
     setPassword(e.target.value);
   };
 
+  //mover para services.
   const handleLogin = () => {
     if (user === users.user && password === users.password) {
       toast.success("Logado com sucesso!");
@@ -74,8 +78,8 @@ const Login = () => {
                       placeholder="exemplo@exemplo.com"
                       className={`${
                         invalid ? "invalidForm" : ""
-                      } form-control border border-info myInput ${
-                        moveAnimation ? "myMoveAnimation" : ""
+                      } form-control border border-info ${
+                        moveAnimation ? "myLMoveAnimation" : ""
                       }`}
                     />
                   </div>
@@ -85,6 +89,7 @@ const Login = () => {
                     <label>
                       <h5>Senha</h5>
                     </label>
+
                     <input
                       name="password"
                       type="password"
@@ -98,13 +103,14 @@ const Login = () => {
                 </div>
                 <div className="col-sm-8">
                   <div className="form-group">
-                    <button
+                    <Button
                       onClick={handleLogin}
-                      type="submit"
-                      className="form-control mt-3 fw-bolder border-info btn btn-success "
+                      className="form-control mt-3 bg-success"
+                      variant="contained"
+                      endIcon={<LoginIcon />}
                     >
                       Entrar
-                    </button>
+                    </Button>
                   </div>
                 </div>
               </div>

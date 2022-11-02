@@ -2,6 +2,19 @@
   color: #fff;
 }
 
+.myFontSize {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+span {
+  margin-right: 20px;
+}
+
+.myCustomBg {
+  background-color: rgba(0, 158, 220, 0.857);
+}
+
 .myBox {
   height: 100vh;
   display: flex;
@@ -15,13 +28,25 @@
   justify-content: space-between;
 }
 
+
 .myFadeAnimation {
   animation-name: fade;
   animation-duration: 1s;
 }
 
-.myMoveAnimation {
+.myFastFadeAnimation {
+  animation-name: fade;
+  animation-duration: 0.5s;
+}
+
+.myLMoveAnimation {
   animation-name: move;
+  animation-duration: 1s;
+  animation-delay: 100;
+}
+
+.myRMoveAnimation {
+  animation-name: rMove;
   animation-duration: 1s;
   animation-delay: 100;
 }
@@ -36,6 +61,10 @@
 .invalidForm {
   animation-name: nono;
   animation-duration: 0.5s;
+}
+
+.dropdown-item:hover {
+  background: #209cdc;
 }
 
 @keyframes fade {
@@ -53,6 +82,17 @@
   from {
     opacity: hidden;
     transform: translateX(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes rMove {
+  from {
+    opacity: hidden;
+    transform: translateX(-50%);
   }
   to {
     opacity: 1;
