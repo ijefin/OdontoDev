@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.9",
     "@mui/material": "^5.10.11",
+    "@mui/x-data-grid": "^5.17.9",
     "add": "^2.0.6",
     "bootstrap": "5.2.2",
     "bootswatch": "^5.2.2",

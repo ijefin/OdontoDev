@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../assets/images/odontoLogo.png";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Table from "../components/Table/Table";
 
 const Home = () => {
   return (
@@ -74,7 +75,19 @@ const Home = () => {
           </div>
         </div>
       </nav>
-      <div className="container"></div>
+      <div className="container-fluid fullHeightContainer ">
+        <div className="container pt-5">
+          <h1 class="display-3 myFontColor">Bem vindo!</h1>
+          <p class="lead myFontColor">
+            Acesse a aba cadastro para um novo paciente/médico, e a aba consulta
+            para uma consulta mais filtrada.
+          </p>
+          <hr class="my-4" />
+          <div class="jumbotron">
+            <Table />
+          </div>
+        </div>
+      </div>
     </>
   );
 };

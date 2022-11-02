@@ -1,5 +1,13 @@
-* {
-  color: #fff;
+.fullHeightContainer {
+  height: 100vh;
+}
+
+.myBg {
+  background-color: #063785;
+}
+
+.myFontColor {
+  color: #063785;
 }
 
 .myFontSize {
@@ -27,7 +35,6 @@ span {
   align-items: center;
   justify-content: space-between;
 }
-
 
 .myFadeAnimation {
   animation-name: fade;
