@@ -14,16 +14,16 @@ const Home = () => {
           </div>
           <div>
             <div className="collapse navbar-collapse" id="navbarColor01 ">
-              <ul className="navbar-nav me-auto myLMoveAnimation">
+              <ul className="navbar-nav me-auto myLMoveAnimation myFontSize">
                 <li className="nav-item">
                   <a className="nav-link active myFontSize" href="#">
                     <span>Início</span>
                     <span className="visually-hidden">(current)</span>
                   </a>
                 </li>
-                <li className="nav-item position-relative">
+                <li className="nav-item dropdown">
                   <a
-                    className="nav-link myFontSize"
+                    className="nav-link "
                     data-bs-toggle="dropdown"
                     href="#"
                     role="button"
@@ -41,7 +41,7 @@ const Home = () => {
                     </a>
                   </div>
                 </li>
-                <li className="nav-item dropdown myFontSize">
+                <li className="nav-item dropdown">
                   <a
                     className="nav-link"
                     data-bs-toggle="dropdown"
@@ -62,7 +62,7 @@ const Home = () => {
                   </div>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link active myFontSize" href="#">
+                  <a className="nav-link active" href="#">
                     <span>
                       Sair <LogoutIcon sx={{ fontSize: 18 }} />
                     </span>
@@ -74,9 +74,7 @@ const Home = () => {
           </div>
         </div>
       </nav>
-      <div className="container">
-        
-      </div>
+      <div className="container"></div>
     </>
   );
 };
