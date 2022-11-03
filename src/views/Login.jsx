@@ -4,10 +4,10 @@ import users from "../../users";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Token from "../security/generateToken";
-import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import Button from "@mui/material/Button";
 import LoginIcon from "@mui/icons-material/Login";
+import RedirectServices from "../helpers/goTo";
 
 const Login = () => {
   const [user, setUser] = useState("jefferson.gomes@exemplo.com");
@@ -15,11 +15,7 @@ const Login = () => {
   let [invalid, setinvalid] = useState(false);
   let [moveAnimation, setmoveAnimation] = useState("myLMoveAnimation");
 
-  const navigate = useNavigate();
-
-  const goToHomePage = () => {
-    navigate("/home");
-  };
+  const services = RedirectServices();
 
   const handleUser = (e) => {
     setUser(e.target.value);
@@ -32,7 +28,7 @@ const Login = () => {
       toast.success("Logado com sucesso!");
       localStorage.setItem("token", Token());
       setTimeout(() => {
-        goToHomePage();
+        services.goToHomePage();
       }, 2000);
     } else {
       setinvalid((invalid = true));

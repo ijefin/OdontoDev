@@ -1,18 +1,21 @@
 import { useNavigate } from "react-router-dom";
-export default class goTo {
-  navigate = useNavigate();
 
-  goToHomePage = () => {
-    navigate("/home");
+const RedirectServices = () => {
+  const navigate = useNavigate();
+
+  return {
+    goToHomePage: () => {
+      navigate("/home");
+    },
+
+    goToLoginPage: () => {
+      navigate("/login");
+    },
+
+    goToRegisterPage: () => {
+      navigate("login");
+    },
   };
+};
 
-  goToLoginPage = () => {
-    navigate("/login");
-  };
-
-  goToRegisterPage = () => {
-    navigate("login");
-  };
-
-  return;
-}
+export default RedirectServices;

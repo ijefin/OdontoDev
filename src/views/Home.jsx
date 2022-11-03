@@ -1,49 +1,58 @@
 import React from "react";
 import logo from "../assets/images/odontoLogo.png";
-import LogoutIcon from "@mui/icons-material/Logout";
 import Table from "../components/Table/Table";
+import { Link } from "react-router-dom";
+import LogoutButton from "../components/LogoutButton/Logout";
+import goTo from "../helpers/goTo";
 
 const Home = () => {
+  
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
         <div className="container">
           <div className="img myRMoveAnimation">
-            <a href="http://127.0.0.1:5173/home">
+            <Link to="/home">
               <img src={logo} alt="logo odontoDev" width={"40%"} />
-            </a>
+            </Link>
           </div>
           <div>
             <div className="collapse navbar-collapse" id="navbarColor01 ">
               <ul className="navbar-nav me-auto myLMoveAnimation myFontSize">
                 <li className="nav-item">
-                  <a className="nav-link active myFontSize" href="#">
-                    <span>Início</span>
-                    <span className="visually-hidden">(current)</span>
-                  </a>
+                  <Link to="/home" className="nav-link active myFontSize">
+                    <span className="m-2">Início</span>
+                  </Link>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <span
                     className="nav-link "
                     data-bs-toggle="dropdown"
-                    href="#"
                     role="button"
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span className="text-light">Cadastro</span>
-                  </a>
+                    <span className="text-light m-2">Cadastro</span>
+                  </span>
                   <div className="dropdown-menu myFastFadeAnimation border border-black">
-                    <a className="dropdown-item " href="#">
+                    <Link
+                      to="/cadastro-paciente"
+                      className="dropdown-item "
+                      href="#"
+                    >
                       Cadastro de paciente
-                    </a>
-                    <a className="dropdown-item" href="#">
+                    </Link>
+                    <Link
+                      to="/cadastro-funcionario"
+                      className="dropdown-item "
+                      href="#"
+                    >
                       Cadastro de funcionário
-                    </a>
+                    </Link>
                   </div>
                 </li>
                 <li className="nav-item dropdown">
-                  <a
+                  <span
                     className="nav-link"
                     data-bs-toggle="dropdown"
                     href="#"
@@ -51,39 +60,32 @@ const Home = () => {
                     aria-haspopup="true"
                     aria-expanded="false"
                   >
-                    <span className="text-light">Consulta</span>
-                  </a>
+                    <span className="text-light m-2">Consulta</span>
+                  </span>
                   <div className="dropdown-menu myFastFadeAnimation">
-                    <a className="dropdown-item" href="#">
+                    <Link to="/consulta-paciente" className="dropdown-item">
                       Consulta de paciente
-                    </a>
-                    <a className="dropdown-item" href="#">
-                      Consulta de funcionário
-                    </a>
+                    </Link>
+                    <Link to="/consulta-funcionario" className="dropdown-item">
+                      Consulta de funcionario
+                    </Link>
                   </div>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link active" href="#">
-                    <span className="text-light">
-                      Sair <LogoutIcon sx={{ fontSize: 18 }} />
-                    </span>
-                    <span className="visually-hidden">(current)</span>
-                  </a>
-                </li>
+                <LogoutButton content="Sair" />
               </ul>
             </div>
           </div>
         </div>
       </nav>
-      <div className="container-fluid fullHeightContainer ">
+      <div className="container-fluid  ">
         <div className="container pt-5">
-          <h1 class="display-3 myFontColor">Bem vindo!</h1>
-          <p class="lead myFontColor">
+          <h1 className="display-3 myFontColor">Bem vindo!</h1>
+          <p className="lead myFontColor">
             Acesse a aba cadastro para um novo paciente/médico, e a aba consulta
             para uma consulta mais filtrada.
           </p>
-          <hr class="my-4" />
-          <div class="jumbotron">
+          <hr className="my-4" />
+          <div className="jumbotron">
             <Table />
           </div>
         </div>
