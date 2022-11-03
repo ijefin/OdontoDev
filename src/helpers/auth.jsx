@@ -8,14 +8,14 @@ const AuthServices = () => {
     verifyToken: () => {
       const getToken = localStorage.getItem("token");
       if (!getToken) {
-        console.log('Erro');
         redirectServices.goToLoginPage();
+        toast.error("Entre novamente!");
       }
     },
 
     handleLogout: () => {
       localStorage.removeItem("token");
-      toast.error("Deslogando..");
+      toast.error("Saindo..");
       setTimeout(() => {
         redirectServices.goToLoginPage();
       }, 1500);

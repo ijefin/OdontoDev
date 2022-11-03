@@ -2,7 +2,7 @@ const Table = () => {
   return (
     <>
       <div className="container">
-        <table class="table table-hover">
+        <table className="table table-hover">
           <thead>
             <tr>
               <th scope="col">Type</th>
@@ -12,13 +12,13 @@ const Table = () => {
             </tr>
           </thead>
           <tbody>
-            <tr class="table-info">
+            <tr className="table-info">
               <th scope="row">Info</th>
               <td>Column content</td>
               <td>Column content</td>
               <td>Column content</td>
             </tr>
-            <tr class="table-light">
+            <tr className="table-light">
               <th scope="row">Dark</th>
               <td>Column content</td>
               <td>Column content</td>
