@@ -1,13 +1,24 @@
-import { useNavigate } from "react-router-dom";
+import RedirectServices from "./RedirectServices";
+import { toast } from "react-toastify";
 
 const AuthServices = () => {
-  const navigate = useNavigate();
+  const redirectServices = RedirectServices();
 
   return {
-
+    verifyToken: () => {
+      const getToken = localStorage.getItem("token");
+      if (!getToken) {
+        console.log('Erro');
+        redirectServices.goToLoginPage();
+      }
+    },
 
     handleLogout: () => {
       localStorage.removeItem("token");
+      toast.error("Deslogando..");
+      setTimeout(() => {
+        redirectServices.goToLoginPage();
+      }, 1500);
     },
   };
 };

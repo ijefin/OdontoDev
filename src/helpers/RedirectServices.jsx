@@ -4,19 +4,18 @@ const RedirectServices = () => {
   const navigate = useNavigate();
 
   return {
+
     goToHomePage: () => {
       navigate("/home");
     },
 
     goToLoginPage: () => {
-      navigate("/login");
+      navigate("/");
     },
 
     goToRegisterPage: () => {
-      navigate("login");
+      navigate("/register");
     },
-
-    
   };
 };
 

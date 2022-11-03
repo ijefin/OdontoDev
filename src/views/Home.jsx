@@ -1,11 +1,20 @@
-import React from "react";
 import logo from "../assets/images/odontoLogo.png";
 import Table from "../components/Table/Table";
 import { Link } from "react-router-dom";
-import LogoutButton from "../components/LogoutButton/Logout";
+import LogoutButton from "../components/Buttons/LogoutButton/Logout";
+import AuthServices from "../helpers/auth";
+import React, { useState, useEffect } from "react";
+import Modal from "../components/Modal/Modal";
 
 const Home = () => {
-  
+  const authServices = AuthServices();
+
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    setToken(authServices.verifyToken());
+  });
+
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-dark bg-info shadow-sm">
@@ -88,6 +97,7 @@ const Home = () => {
             <Table />
           </div>
         </div>
+        <Modal modalTitle="Sair?" modalContent="Você deseja fazer Logout?" />
       </div>
     </>
   );

@@ -1,3 +1,5 @@
+import ConfirmButton from "../Buttons/ConfirmButton/ConfirmButton";
+
 const Modal = (props) => {
   return (
     <>
@@ -31,12 +33,7 @@ const Modal = (props) => {
                 >
                   Cancelar
                 </button>
-                <button
-                  type="button"
-                  className="btn btn-primary"
-                >
-                  Confirmar
-                </button>
+                <ConfirmButton />
               </div>
             </div>
           </div>
