@@ -1,9 +1,8 @@
 import React from "react";
-import AppRoutes from "./routes/routes";
 import "bootswatch/dist/pulse/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
-import Modal from "./components/Modal/Modal";
-import { BrowserRouter } from "react-router-dom";
+import Navbar from "./components/Navs/Navbar";
+import AppRoutes from "./routes/routes";
 
 const App = () => {
   return (
