@@ -5,9 +5,6 @@ const AuthServices = () => {
 
   return {
 
-    handleLogin: () => {
-
-    },
 
     handleLogout: () => {
       localStorage.removeItem("token");
@@ -15,4 +12,4 @@ const AuthServices = () => {
   };
 };
 
-export default RedirectServices;
+export default AuthServices;
