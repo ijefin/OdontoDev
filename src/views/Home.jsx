@@ -3,7 +3,6 @@ import logo from "../assets/images/odontoLogo.png";
 import Table from "../components/Table/Table";
 import { Link } from "react-router-dom";
 import LogoutButton from "../components/LogoutButton/Logout";
-import goTo from "../helpers/goTo";
 
 const Home = () => {
   

@@ -15,6 +15,8 @@ const RedirectServices = () => {
     goToRegisterPage: () => {
       navigate("login");
     },
+
+    
   };
 };
 
