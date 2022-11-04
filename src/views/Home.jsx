@@ -3,6 +3,9 @@ import Navbar from "../components/Navs/Navbar";
 import AuthServices from "../helpers/auth";
 import React, { useState, useEffect } from "react";
 import Modal from "../components/Modal/Modal";
+import { render } from "react-dom";
+
+render
 
 const Home = () => {
   const authServices = AuthServices();
@@ -15,6 +18,7 @@ const Home = () => {
 
   return (
     <>
+      <Navbar />
       <div className="container-fluid  ">
         <div className="container pt-5">
           <h1 className="display-3 myFontColor">Bem vindo!</h1>

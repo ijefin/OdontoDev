@@ -10,19 +10,12 @@ import Navbar from "../components/Navs/Navbar";
 const AppRoutes = () => {
   return (
     <>
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Login />} />
-          <Route exact path="/test" element={<TestView />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route
-            exact
-            path="/cadastro-paciente"
-            element={<CadastroPaciente />}
-          />
-        </Routes>
-      </Router>
+      <Routes>
+        <Route exact path="/" element={<Login />} />
+        <Route exact path="/test" element={<TestView />} />
+        <Route exact path="/home" element={<Home />} />
+        <Route exact path="/cadastro-paciente" element={<CadastroPaciente />} />
+      </Routes>
     </>
   );
 };

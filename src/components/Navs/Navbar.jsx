@@ -1,13 +1,12 @@
 import logo from "../../assets/images/odontoLogo.png";
 import { Link } from "react-router-dom";
 import LogoutButton from "../../components/Buttons/LogoutButton/Logout";
+import { useState, useEffect } from "react";
 
-const Navbar = () => {
+const Navbar = (props) => {
   return (
     <>
-      <nav
-        className="navbar navbar-expand-lg navbar-dark bg-info shadow-sm"
-      >
+      <nav className="navbar navbar-expand-lg navbar-dark bg-info shadow-sm" style={{display: props.display}}>
         <div className="container">
           <div className="img myRMoveAnimation">
             <Link to="/home">
