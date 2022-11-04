@@ -2,8 +2,9 @@
   height: 100vh;
 }
 
-.myBg {
-  background-color: #063785;
+
+.myBorder {
+  border-radius: 20px;
 }
 
 .myFontColor {
@@ -14,7 +15,6 @@
   font-size: 18px;
   font-weight: 600;
 }
-
 
 .myCustomBg {
   background-color: rgba(0, 158, 220, 0.857);

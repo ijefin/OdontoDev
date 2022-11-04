@@ -18,7 +18,7 @@ const CadastroPaciente = () => {
 
   return (
     <>
-      <div className="container">
+      <div>
         <FormComPlano />
       </div>
     </>

@@ -31,7 +31,6 @@ const Home = () => {
             <Table />
           </div>
         </div>
-        <Modal modalTitle="Sair?" modalContent="Você deseja fazer Logout?" />
       </div>
     </>
   );
