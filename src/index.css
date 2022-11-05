@@ -2,7 +2,6 @@
   height: 100vh;
 }
 
-
 .myBorder {
   border-radius: 20px;
 }
@@ -11,13 +10,22 @@
   color: #063785;
 }
 
+.myMargin {
+  margin-top: 15%;
+}
+
+.myLeftBorder {
+  border-bottom-right-radius: 90px;
+  border-top-left-radius: 90px;
+}
+
 .myFontSize {
   font-size: 18px;
   font-weight: 600;
 }
 
-.myCustomBg {
-  background-color: rgba(0, 158, 220, 0.857);
+.myGradientBg {
+  background: linear-gradient(to right, #063785 0%, #009cdc 100%);
 }
 
 .myBox {
@@ -31,6 +39,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.myFlex {
+  display: flex;
 }
 
 .myFadeAnimation {

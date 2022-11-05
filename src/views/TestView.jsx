@@ -1,9 +1,9 @@
-import Modal from "../components/Modal/Modal";
+import NavMenu from "../components/Navs/NavMenu";
 
 const TestView = () => {
   return (
     <>
-      <Modal meuAttr="teste" />
+      <NavMenu />
     </>
   );
 };

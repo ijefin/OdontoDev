@@ -5,7 +5,6 @@ import TestView from "../views/TestView";
 import Home from "../views/Home";
 import Login from "../views/Login";
 import CadastroPaciente from "../views/CadastroPaciente";
-import Navbar from "../components/Navs/Navbar";
 
 const AppRoutes = () => {
   return (

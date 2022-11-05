@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
 import FormComPlano from "../components/Forms/FormComPlano";
-import Navbar from "../components/Navs/Navbar";
 
 const CadastroPaciente = () => {
   const [nome, setNome] = useState("");
-  const [idade, setidade] = useState(0);
   const [dataNasc, setDataNasc] = useState(Date);
   const [sexo, setSexo] = useState("");
   const [cpf, setCpf] = useState("");

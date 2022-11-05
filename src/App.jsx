@@ -1,7 +1,6 @@
 import React from "react";
 import "bootswatch/dist/pulse/bootstrap.min.css";
 import { ToastContainer } from "react-toastify";
-import Navbar from "./components/Navs/Navbar";
 import AppRoutes from "./routes/routes";
 import { BrowserRouter as Router } from "react-router-dom";
 import Modal from "./components/Modal/Modal";
