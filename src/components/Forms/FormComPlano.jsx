@@ -4,11 +4,20 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Switch from "@mui/material/Switch";
 import SaveButton from "../Buttons/SaveButton/SaveButton";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AuthServices from "../../helpers/auth";
 
 const FormComPlano = () => {
   const [displayPlano, setdisplayPlano] = useState("none");
   const [isChecked, setIsChecked] = useState(false);
+
+  const authServices = AuthServices();
+
+  const [token, setToken] = useState();
+
+  useEffect(() => {
+    setToken(authServices.verifyToken());
+  });
 
   const verifyChecked = (e) => {
     setIsChecked(e.target.checked);
