@@ -5,12 +5,22 @@ import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Switch from "@mui/material/Switch";
 import SaveButton from "../Buttons/SaveButton/SaveButton";
 import React, { useState, useEffect } from "react";
-import AuthServices from "../../helpers/auth";
+import AuthServices from "../../services/auth";
 
 const FormComPlano = () => {
+  const [nome, setNome] = useState("");
+  const [dataNasc, setDataNasc] = useState(Date);
+  const [sexo, setSexo] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [rg, setRg] = useState("");
+  const [plano, setPlano] = useState(true);
+  const [estadoCivil, setEstadoCivil] = useState("");
+  const [endereco, setEndereco] = useState([]);
+  const [carteira, setCarteira] = useState(0);
+  const [dataIngresso, setDataIngresso] = useState(0);
+  const [carencia, setCarencia] = useState(false);
   const [displayPlano, setdisplayPlano] = useState("none");
   const [isChecked, setIsChecked] = useState(false);
-
   const authServices = AuthServices();
 
   const [token, setToken] = useState();
@@ -56,7 +66,7 @@ const FormComPlano = () => {
                           id="nome"
                           type="text"
                           name="nome"
-                          className="form-control"
+                          className="form-control is-invalid"
                         />
                       </div>
                     </div>

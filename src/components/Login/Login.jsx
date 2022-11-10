@@ -2,7 +2,7 @@ import Button from "@mui/material/Button";
 import LoginIcon from "@mui/icons-material/Login";
 import PersonIcon from "@mui/icons-material/Person";
 import { useState } from "react";
-import RedirectServices from "../../helpers/RedirectServices";
+import RedirectServices from "../../services/RedirectServices";
 import users from "../../../users";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";

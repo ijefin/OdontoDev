@@ -1,8 +1,7 @@
 import Table from "../components/Table/Table";
 import Navbar from "../components/Navs/Navbar";
-import AuthServices from "../helpers/auth";
+import AuthServices from "../services/auth";
 import React, { useState, useEffect } from "react";
-import Modal from "../components/Modal/Modal";
 import { render } from "react-dom";
 
 render

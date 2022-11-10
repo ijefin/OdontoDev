@@ -1,4 +1,4 @@
-import AuthServices from "../../../helpers/auth";
+import AuthServices from "../../../services/auth";
 
 const ConfirmButton = () => {
   const authService = AuthServices();
