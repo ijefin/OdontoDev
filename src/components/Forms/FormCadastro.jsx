@@ -7,9 +7,11 @@ import React, { useState, useEffect } from "react";
 import AuthServices from "../../services/auth";
 import SaveIcon from "@mui/icons-material/Save";
 import { Button } from "@mui/material";
+import { toast } from "react-toastify";
+import SaveService from "../../services/crudService";
 
 const FormComPlano = () => {
-  const [formData, setFormData] = useState({});
+  let [formData, setFormData] = useState({});
 
   const [displayPlano, setdisplayPlano] = useState("none");
   const [isChecked, setIsChecked] = useState(false);
@@ -18,11 +20,11 @@ const FormComPlano = () => {
 
   const [token, setToken] = useState();
 
+  const service = SaveService();
+
   useEffect(() => {
     setToken(authServices.verifyToken());
   });
-
-  const finalData = [];
 
   const verifyChecked = (e) => {
     setIsChecked(e.target.checked);
@@ -31,12 +33,19 @@ const FormComPlano = () => {
   };
 
   const handleInput = (e) => {
-    const { name, value } = e.target;
+    let { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    setTimeout(() => {
+      setFormData({ [name]: "" });
+    }, 2000)();
   };
 
-  const salvarDados = () => {
-    console.log("TEste");
+  console.log(formData);
+
+  const saveData = () => {
+    service.save(formData);
+    toast.success("Cadastrado com sucesso!");
   };
 
   return (
@@ -61,7 +70,7 @@ const FormComPlano = () => {
                   </h5>
                 </div>
                 <div className="card-body">
-                  <div className="row">
+                  <div id="form" className="row">
                     <div className="col-sm-3">
                       <div className="form-group pb-3">
                         <label htmlFor="nome">Nome completo: *</label>
@@ -70,6 +79,7 @@ const FormComPlano = () => {
                           type="text"
                           onChange={(e) => handleInput(e)}
                           name="nome"
+                          value={formData.nome}
                           className="form-control"
                         />
                       </div>
@@ -255,7 +265,7 @@ const FormComPlano = () => {
                   </div>
                   <div className="text-end">
                     <Button
-                      onClick={salvarDados}
+                      onClick={saveData}
                       variant="contained"
                       className="m-1"
                       endIcon={<SaveIcon />}

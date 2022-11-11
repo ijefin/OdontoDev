@@ -4,7 +4,6 @@ const RedirectServices = () => {
   const navigate = useNavigate();
 
   return {
-
     goToHomePage: () => {
       navigate("/home");
     },
