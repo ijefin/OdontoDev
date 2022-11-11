@@ -3,34 +3,13 @@ import HealthAndSafetySharpIcon from "@mui/icons-material/HealthAndSafetySharp";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PersonAddIcon from "@mui/icons-material/PersonAdd";
 import Switch from "@mui/material/Switch";
-import SaveButton from "../Buttons/SaveButton/SaveButton";
 import React, { useState, useEffect } from "react";
 import AuthServices from "../../services/auth";
+import SaveIcon from "@mui/icons-material/Save";
+import { Button } from "@mui/material";
 
 const FormComPlano = () => {
-  const [dadosPessoais, setDadosPessoais] = useState({
-    nome: "",
-    dataNasc: "",
-    sexo: "",
-    cpf: "",
-    rg: "",
-    estadoCivil: "",
-  });
-
-  const [endereco, setEndereco] = useState({
-    cep: "",
-    rua: "",
-    numero: 0,
-    bairro: "",
-    complemento: "",
-  });
-
-  const [plano, setPlano] = useState({
-    carteira: "",
-    dataIngresso: "",
-    carencia: false,
-    tipoDePlano: "",
-  });
+  const [formData, setFormData] = useState({});
 
   const [displayPlano, setdisplayPlano] = useState("none");
   const [isChecked, setIsChecked] = useState(false);
@@ -43,26 +22,21 @@ const FormComPlano = () => {
     setToken(authServices.verifyToken());
   });
 
+  const finalData = [];
+
   const verifyChecked = (e) => {
     setIsChecked(e.target.checked);
-    console.log(!isChecked);
 
     isChecked ? setdisplayPlano("none") : setdisplayPlano("flex");
   };
 
-  const handleInputedData = (e) => {
-    const fieldName = e.target.name;
-    const fieldValue = e.target.value;
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
 
-    let handleUserData = {
-      [fieldName]: fieldValue,
-    };
-
-    setDadosPessoais((dados) => ({
-      ...(dados = handleUserData),
-    }));
-
-    console.log(dadosPessoais.nome, dadosPessoais.cpf);
+  const salvarDados = () => {
+    console.log("TEste");
   };
 
   return (
@@ -94,8 +68,7 @@ const FormComPlano = () => {
                         <input
                           id="nome"
                           type="text"
-                          onChange={handleInputedData}
-                          value={dadosPessoais.nome}
+                          onChange={(e) => handleInput(e)}
                           name="nome"
                           className="form-control"
                         />
@@ -109,9 +82,8 @@ const FormComPlano = () => {
                         <input
                           id="data-nascimento"
                           type="date"
-                          onChange={handleInputedData}
+                          onChange={handleInput}
                           name="nascimento"
-                          value={dadosPessoais.dataNasc}
                           className="form-control"
                         />
                       </div>
@@ -122,9 +94,8 @@ const FormComPlano = () => {
                         <input
                           id="cpf"
                           type="text"
-                          name="CPF"
-                          onChange={handleInputedData}
-                          value={dadosPessoais.cpf}
+                          name="cpf"
+                          onChange={handleInput}
                           className="form-control"
                         />
                       </div>
@@ -134,9 +105,8 @@ const FormComPlano = () => {
                         <label htmlFor="rg">RG: *</label>
                         <input
                           id="rg"
-                          name="preco"
-                          onChange={handleInputedData}
-                          value={dadosPessoais.rg}
+                          name="rg"
+                          onChange={handleInput}
                           className="form-control"
                         />
                       </div>
@@ -147,9 +117,8 @@ const FormComPlano = () => {
                         <input
                           id="estado-civil"
                           type="text"
-                          name="Estado Civil"
-                          onChange={handleInputedData}
-                          value={dadosPessoais.estadoCivil}
+                          name="estadoCivil"
+                          onChange={handleInput}
                           className="form-control"
                         />
                       </div>
@@ -181,7 +150,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="cep"
-                          onChange={handleInputedData}
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -190,9 +159,8 @@ const FormComPlano = () => {
                         <label>Rua: *</label>
                         <input
                           className="form-control"
-                          name="descricao"
-                          value={endereco.rua}
-                          onChange={handleInputedData}
+                          name="rua"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -201,9 +169,8 @@ const FormComPlano = () => {
                         <label>Numero°</label>
                         <input
                           className="form-control"
-                          name="numero°"
-                          onChange={handleInputedData}
-                          value={endereco.numero}
+                          name="numero"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -213,8 +180,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="bairro"
-                          onChange={handleInputedData}
-                          value={endereco.bairro}
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -224,8 +190,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="complemento"
-                          onChange={handleInputedData}
-                          value={endereco.complemento}
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -240,7 +205,7 @@ const FormComPlano = () => {
                       <div className="form-group pb-3">
                         <label>OP do plano: *</label>
                         <input
-                          onChange={handleInputedData}
+                          onChange={handleInput}
                           className="form-control"
                           name="operador"
                         ></input>
@@ -251,8 +216,8 @@ const FormComPlano = () => {
                         <label>Número da carteira: *</label>
                         <input
                           className="form-control"
-                          name="descricao"
-                          onChange={handleInputedData}
+                          name="numeroCarteira"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -262,8 +227,8 @@ const FormComPlano = () => {
                         <input
                           type="date"
                           className="form-control"
-                          name="descricao"
-                          onChange={handleInputedData}
+                          name="dataDoIngresso"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -272,8 +237,8 @@ const FormComPlano = () => {
                         <label>Plano de saúde:</label>
                         <input
                           className="form-control"
-                          name="descricao"
-                          onChange={handleInputedData}
+                          name="planoDeSaude"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
@@ -282,14 +247,21 @@ const FormComPlano = () => {
                         <label>Carência:</label>
                         <input
                           className="form-control"
-                          name="descricao"
-                          onChange={handleInputedData}
+                          name="carencia"
+                          onChange={handleInput}
                         ></input>
                       </div>
                     </div>
                   </div>
                   <div className="text-end">
-                    <SaveButton />
+                    <Button
+                      onClick={salvarDados}
+                      variant="contained"
+                      className="m-1"
+                      endIcon={<SaveIcon />}
+                    >
+                      Cadastrar
+                    </Button>
                   </div>
                 </div>
               </div>
