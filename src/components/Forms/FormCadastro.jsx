@@ -9,6 +9,7 @@ import SaveIcon from "@mui/icons-material/Save";
 import { Button } from "@mui/material";
 import { toast } from "react-toastify";
 import SaveService from "../../services/crudService";
+import initialState from "../../../mock/initialState";
 
 const FormComPlano = () => {
   let [formData, setFormData] = useState({});
@@ -35,10 +36,6 @@ const FormComPlano = () => {
   const handleInput = (e) => {
     let { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    setTimeout(() => {
-      setFormData({ [name]: "" });
-    }, 2000)();
   };
 
   console.log(formData);
@@ -46,6 +43,11 @@ const FormComPlano = () => {
   const saveData = () => {
     service.save(formData);
     toast.success("Cadastrado com sucesso!");
+    clearFields();
+  };
+
+  const clearFields = () => {
+    setFormData(initialState);
   };
 
   return (
@@ -94,6 +96,7 @@ const FormComPlano = () => {
                           type="date"
                           onChange={handleInput}
                           name="nascimento"
+                          value={formData.dataNascimento}
                           className="form-control"
                         />
                       </div>
@@ -105,6 +108,7 @@ const FormComPlano = () => {
                           id="cpf"
                           type="text"
                           name="cpf"
+                          value={formData.cpf}
                           onChange={handleInput}
                           className="form-control"
                         />
@@ -116,6 +120,7 @@ const FormComPlano = () => {
                         <input
                           id="rg"
                           name="rg"
+                          value={formData.rg}
                           onChange={handleInput}
                           className="form-control"
                         />
@@ -128,6 +133,7 @@ const FormComPlano = () => {
                           id="estado-civil"
                           type="text"
                           name="estadoCivil"
+                          value={formData.estadoCivil}
                           onChange={handleInput}
                           className="form-control"
                         />
@@ -141,6 +147,7 @@ const FormComPlano = () => {
                           inputProps={{ "aria-label": "controlled" }}
                           onChange={verifyChecked}
                           checked={isChecked}
+                          value={isChecked === true ? "Sim" : "Não"}
                           id="switch"
                         />
                         <label htmlFor="switch">Sim</label>
@@ -160,6 +167,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="cep"
+                          value={formData.cep}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -170,6 +178,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="rua"
+                          value={formData.rua}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -180,6 +189,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="numero"
+                          value={formData.numero}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -190,6 +200,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="bairro"
+                          value={formData.bairro}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -201,6 +212,7 @@ const FormComPlano = () => {
                           className="form-control"
                           name="complemento"
                           onChange={handleInput}
+                          value={formData.complemento}
                         ></input>
                       </div>
                     </div>
@@ -217,7 +229,8 @@ const FormComPlano = () => {
                         <input
                           onChange={handleInput}
                           className="form-control"
-                          name="operador"
+                          name="operadorPlano"
+                          value={formData.operadorPlano}
                         ></input>
                       </div>
                     </div>
@@ -227,6 +240,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="numeroCarteira"
+                          value={formData.numeroCarteira}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -238,6 +252,7 @@ const FormComPlano = () => {
                           type="date"
                           className="form-control"
                           name="dataDoIngresso"
+                          value={formData.dataDoIngresso}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -248,6 +263,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="planoDeSaude"
+                          value={formData.planoDeSaude}
                           onChange={handleInput}
                         ></input>
                       </div>
@@ -258,6 +274,7 @@ const FormComPlano = () => {
                         <input
                           className="form-control"
                           name="carencia"
+                          value={formData.carencia}
                           onChange={handleInput}
                         ></input>
                       </div>
